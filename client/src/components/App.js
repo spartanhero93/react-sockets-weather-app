@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import socketIOClient from 'socket.io-client'
-import './App.css'
+
+import WeatherBox from './Weather'
 
 class App extends Component {
   state = {
@@ -11,14 +12,10 @@ class App extends Component {
   componentDidMount () {
     const { endpoint } = this.state
     const socket = socketIOClient(endpoint)
-    socket.on('FromAPI', data => {
-      console.log(data)
-      this.setState({ response: data })
-    })
+    socket.on('FromAPI', data => this.setState({ response: data }))
   }
   render () {
     const { response } = this.state
-    console.log(this.state.response)
     return (
       <div style={{ textAlign: 'center' }}>
         {response
