@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import socketIOClient from 'socket.io-client'
 
-import WeatherBox from './Weather'
-
 class App extends Component {
   state = {
     response: false,
